@@ -20,11 +20,11 @@ public class WavesSpawner : MonoBehaviour
         if (countdown <= 0)
         {
             StartCoroutine(SpawnWave());
-            countdown = timeBetweenWaves;
+            countdown = timeBetweenWaves + (waveIndex / 2.0f);
         }
 
         countdown -= Time.deltaTime;
-        waveCountdownTimer.text = Mathf.Round(countdown).ToString();
+        waveCountdownTimer.text = (countdown).ToString();
     }
 
     IEnumerator SpawnWave()
